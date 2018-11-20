@@ -1,6 +1,7 @@
 const config = {
   projectName: 'myApp',
   date: '2018-11-20',
+  // 设计稿尺寸
   designWidth: 750,
   deviceRatio: {
     '640': 2.34 / 2,
@@ -9,6 +10,7 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
+  // 通用插件配置
   plugins: {
     babel: {
       sourceMap: true,
@@ -50,6 +52,7 @@ const config = {
       compileOnSave: false
     }
   },
+  // 全局变量设置
   defineConstants: {
   },
   copy: {
@@ -58,12 +61,14 @@ const config = {
     options: {
     }
   },
+  // 小程序端专用配置
   weapp: {
     module: {
       postcss: {
         autoprefixer: {
           enable: true
         },
+        // 小程序端样式引用本地资源内联配置
         url: {
           enable: true,
           limit: 10240
@@ -71,6 +76,7 @@ const config = {
       }
     }
   },
+  // H5 端专用配置
   h5: {
     publicPath: '/',
     staticDirectory: 'static',

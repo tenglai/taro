@@ -1,35 +1,66 @@
+import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
-import Index from './pages/index'
+import Home from './pages/home'
+import dva from './utils/dva'
+import models from './models'
+import { Provider } from '@tarojs/redux'
 
-import './app.scss'
+import './styles/base.scss'
+
+
+const dvaApp = dva.createApp({
+  initialState: {},
+  models: models,
+});
+const store = dvaApp.getStore();
 
 class App extends Component {
 
   config = {
     pages: [
-      'pages/index/index'
+      'pages/home/index',
+      'pages/cart/index',
+      'pages/user/index',
     ],
     window: {
-      backgroundTextStyle: 'light',
+      backgroundTextStyle: 'dark',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
+      navigationBarTitleText: '女装租赁平台',
       navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      list: [{
+        pagePath: "pages/home/index",
+        text: "首页",
+        iconPath: "./images/tab/home.png",
+        selectedIconPath: "./images/tab/home-active.png"
+      }, {
+        pagePath: "pages/cart/index",
+        text: "衣袋",
+        iconPath: "./images/tab/cart.png",
+        selectedIconPath: "./images/tab/cart-active.png"
+      },{
+        pagePath: "pages/user/index",
+        text: "我的",
+        iconPath: "./images/tab/user.png",
+        selectedIconPath: "./images/tab/user-active.png"
+      }],
+      color: '#333',
+      selectedColor: '#333',
+      backgroundColor: '#fff',
+      borderStyle: '#ccc'
     }
   }
 
-  componentDidMount () {}
+  componentDidMount() {
 
-  componentDidShow () {}
+  }
 
-  componentDidHide () {}
-
-  componentCatchError () {}
-
-  render () {
-    return (
-      <Index />
-    )
+  render() {
+    return (<Provider store={store}>
+      <Home/>
+    </Provider>);
   }
 }
 
-Taro.render(<App />, document.getElementById('app'))
+Taro.render(<App/>, document.getElementById('app'))
