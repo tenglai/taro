@@ -44,6 +44,7 @@
     "@tarojs/plugin-sass": "^1.0.7",
     "@tarojs/plugin-uglifyjs": "^1.0.7",
     "@tarojs/webpack-runner": "^1.0.7",
+    "@babel/runtime": "7.0.0-beta.46",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-jsx-stylesheet": "^0.6.5",
