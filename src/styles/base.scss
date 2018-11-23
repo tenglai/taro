@@ -9,10 +9,19 @@ page, body {
   box-sizing: border-box;
 }
 
+@media screen and (min-width: 500px) {
+  html,body {
+    max-width: 1500px;
+    margin: 0 auto;
+    position: relative;
+  }
+}
+
 .taro-img,image {
   width: 100%;
 }
- button {
+
+button {
   outline:none;
 }
 
